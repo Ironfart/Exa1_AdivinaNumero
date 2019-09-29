@@ -1,18 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:paddingHorizontal="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txtFir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:layout_marginHorizontal="5dp"
+            android:padding="10dp"
+            android:hint=""
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/txtSec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:layout_marginHorizontal="5dp"
+            android:padding="10dp"
+            android:hint=""
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/txtThi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:layout_marginHorizontal="5dp"
+            android:padding="10dp"
+            android:hint=""
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/txtFou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:layout_marginHorizontal="5dp"
+            android:padding="10dp"
+            android:hint=""
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/txtFif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:layout_marginHorizontal="5dp"
+            android:padding="10dp"
+            android:hint=""
+            android:textColor="@android:color/black"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de serie:"
+            android:textColor="@android:color/black"
+            android:layout_marginVertical="20dp" />
+
+        <RadioGroup
+            android:id="@+id/rdGpSerie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rdBtnAr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Aritmética"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/rdBtnAl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Algebráica" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:text="Número faltante:"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:id="@+id/edTxtRes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnVerif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verificar"
+            android:layout_gravity="center"
+            android:onClick="check"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
