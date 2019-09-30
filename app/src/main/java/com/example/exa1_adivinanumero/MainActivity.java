@@ -45,12 +45,10 @@ public class MainActivity extends AppCompatActivity {
                 // Call to the correct generate method
                 if (checkedRadioButton.getId() == R.id.rdBtnAr){
                     generateArit();
-                    lives = 3;
                     Toast.makeText(MainActivity.this, "Vidas reiniciadas", Toast.LENGTH_SHORT).show();
                 }
                  else {
                     generateAlge();
-                    lives = 3;
                     Toast.makeText(MainActivity.this, "Vidas reiniciadas", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -131,67 +129,63 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void check(View v){
-        int guess = Integer.parseInt(edTxtRes.getText().toString());
+        int guess = 0;
 
-        if (lives > 0) {
-            if (txtFir.getText().toString().equals("")) {
-                if (guess == serie[0]) {
-                    Toast.makeText(this, "Ganaste", Toast.LENGTH_SHORT).show();
-                    lives = 3;
-                    load();
+        try {
+            guess = Integer.parseInt(edTxtRes.getText().toString());
+            if (lives > 0) {
+                if (txtFir.getText().toString().equals("")) {
+                    if (guess == serie[0]) {
+                        Toast.makeText(this, "Ganaste", Toast.LENGTH_SHORT).show();
+                        load();
+                    } else {
+                        lives -= 1;
+                        Toast.makeText(this, "Te quedan " + lives + " vidas", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (txtSec.getText().toString().equals("")) {
+                    if (guess == serie[1]) {
+                        Toast.makeText(this, "Ganaste", Toast.LENGTH_SHORT).show();
+                        load();
+                    } else {
+                        lives -= 1;
+                        Toast.makeText(this, "Te quedan " + lives + " vidas", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (txtThi.getText().toString().equals("")) {
+                    if (guess == serie[2]) {
+                        Toast.makeText(this, "Ganaste", Toast.LENGTH_SHORT).show();
+                        load();
+                    } else {
+                        lives -= 1;
+                        Toast.makeText(this, "Te quedan " + lives + " vidas", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (txtFou.getText().toString().equals("")) {
+                    if (guess == serie[3]) {
+                        Toast.makeText(this, "Ganaste", Toast.LENGTH_SHORT).show();
+                        load();
+                    } else {
+                        lives -= 1;
+                        Toast.makeText(this, "Te quedan " + lives + " vidas", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (txtFif.getText().toString().equals("")) {
+                    if (guess == serie[4]) {
+                        Toast.makeText(this, "Ganaste", Toast.LENGTH_SHORT).show();
+                        load();
+                    } else {
+                        lives -= 1;
+                        Toast.makeText(this, "Te quedan " + lives + " vidas", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else {
-                    lives -= 1;
-                    Toast.makeText(this, "Te quedan "+lives+" vidas", Toast.LENGTH_SHORT).show();
-                }
-            } else if (txtSec.getText().toString().equals("")) {
-                if (guess == serie[1]) {
-                    Toast.makeText(this, "Ganaste", Toast.LENGTH_SHORT).show();
-                    lives = 3;
-                    load();
-                }
-                else {
-                    lives -= 1;
-                    Toast.makeText(this, "Te quedan "+lives+" vidas", Toast.LENGTH_SHORT).show();
-                }
-            } else if (txtThi.getText().toString().equals("")) {
-                if (guess == serie[2]) {
-                    Toast.makeText(this, "Ganaste", Toast.LENGTH_SHORT).show();
-                    lives = 3;
-                    load();
-                }
-                else {
-                    lives -= 1;
-                    Toast.makeText(this, "Te quedan "+lives+" vidas", Toast.LENGTH_SHORT).show();
-                }
-            } else if (txtFou.getText().toString().equals("")) {
-                if (guess == serie[3]) {
-                    Toast.makeText(this, "Ganaste", Toast.LENGTH_SHORT).show();
-                    lives = 3;
-                    load();
-                }
-                else {
-                    lives -= 1;
-                    Toast.makeText(this, "Te quedan "+lives+" vidas", Toast.LENGTH_SHORT).show();
-                }
-            } else if (txtFif.getText().toString().equals("")) {
-                if (guess == serie[4]) {
-                    Toast.makeText(this, "Ganaste", Toast.LENGTH_SHORT).show();
-                    lives = 3;
-                    load();
-                }
-                else {
-                    lives -= 1;
-                    Toast.makeText(this, "Te quedan "+lives+" vidas", Toast.LENGTH_SHORT).show();
-                }
+            } else {
+                Toast.makeText(this, "Ya no te quedan vidas!", Toast.LENGTH_SHORT).show();
+                load();
             }
-        } else {
-            Toast.makeText(this, "Ya no te quedan vidas!", Toast.LENGTH_SHORT).show();
-            load();
+        } catch (Exception e) {
+            Toast.makeText(this, "Introduce un valor!", Toast.LENGTH_SHORT).show();
         }
     }
 
     public void load(){
+        lives = 3;
         if (rdGpSerie.getCheckedRadioButtonId() == R.id.rdBtnAr)
             generateArit();
         else
